@@ -1,16 +1,11 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
+import Main from './App/Components/Main';
+
 import {
   AppRegistry,
   StyleSheet,
   Text,
   NavigatorIOS,
-  View
 } from 'react-native';
 
 var styles = StyleSheet.create({
@@ -35,6 +30,5 @@ class AwesomeProject extends Component {
     );
   }
 }
-
 
 AppRegistry.registerComponent('AwesomeProject', () => AwesomeProject);

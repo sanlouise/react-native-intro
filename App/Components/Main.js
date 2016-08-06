@@ -1,12 +1,12 @@
-import React, { Component } from 'react-native';
+import React from 'react';
+import { View } from 'react-native';
 
-const {
-	View,
+import {
 	Text,
 	StyleSheet
-} = React;
+} from 'react-native';
 
-var styles = StyleSheet.create({
+let styles = StyleSheet.create({
     mainContainer: {
         flex: 1,
         padding: 30,
@@ -50,13 +50,13 @@ var styles = StyleSheet.create({
     },
 });
 
-class Main extends Component {
-  render() {
-    return (
-      <View style={styles.mainContainer>
-      	<Text>"Testing Router" </Text>
-      </View>
 
+class Main extends React.Component{
+  render() {
+    return(
+      <View style={styles.mainContainer}>
+        <Text> Testing the Router </Text>
+          </View>
     )
   }
 };
