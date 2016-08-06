@@ -53,7 +53,7 @@ var styles = StyleSheet.create({
 class Main extends Component {
   render() {
     return (
-      <View>
+      <View style={styles.mainContainer>
       	<Text>"Testing Router" </Text>
       </View>
 
