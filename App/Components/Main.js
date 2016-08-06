@@ -3,7 +3,10 @@ import { View } from 'react-native';
 
 import {
 	Text,
-	StyleSheet
+	StyleSheet,
+	TextInput,
+	TouchableHighlight,
+	ActivityIndicatorIOS
 } from 'react-native';
 
 let styles = StyleSheet.create({
@@ -52,11 +55,42 @@ let styles = StyleSheet.create({
 
 
 class Main extends React.Component{
+	constructor(props){
+		super(props);
+		this.state = {
+			username: '',
+			isLoading: false,
+			error: false
+		}
+	}
+
+	handleChange(e) {
+		this.setState({
+			username: e.nativeEvent.text
+		})
+	}
+
+	handleSubmit() {
+		//Update indicatorIOS spinner
+		//Fetch GitHub data
+		//Reroute with GitHub data
+	}
+
   render() {
     return(
       <View style={styles.mainContainer}>
-        <Text> Testing the Router </Text>
-          </View>
+        <Text style={styles.title}>Search for a GitHub User</Text>
+      	<TextInput
+      		style={styles.searchInput}
+      		value={this.state.username}
+      		onChange={this.handleChange.bind(this)} />
+      	<TouchableHighlight
+      		style={styles.button}
+      		onPress={this.handleSubmit.bind(this)}
+      		underlayColor="white">
+      			<Text style={styles.buttonText}>SEARCH</Text>
+      	</TouchableHighlight>
+      </View>
     )
   }
 };
