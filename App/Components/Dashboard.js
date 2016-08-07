@@ -1,5 +1,6 @@
 import React from 'react';
 import Profile from './Profile';
+import Repositories from './Repositories';
 import api from '../Utils/api';
 
 import {
@@ -45,15 +46,19 @@ class Dashboard extends React.Component{
 	}
 
 	goToProfile(){
-      this.props.navigator.push({
-          component: Profile,
-          title: 'Profile Page',
-          passProps: {userInfo: this.props.userInfo}
-      })
+    this.props.navigator.push({
+        component: Profile,
+        title: 'Profile Page',
+        passProps: {userInfo: this.props.userInfo}
+    })
   }
 
 	goToRepos() {
-		console.log('Redirecting to Repos');
+    this.props.navigator.push({
+        component: Repositories,
+        title: 'Repositories',
+        passProps: {userInfo: this.props.userInfo}
+    })
 	}
 
 	goToNotes() {
