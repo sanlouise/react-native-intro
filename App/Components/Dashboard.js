@@ -4,7 +4,9 @@ import api from '../Utils/api';
 import {
   Text,
   View,
-  StyleSheet
+  StyleSheet,
+  Image,
+  TouchableHighlight
 } from 'react-native';
 
 var styles = StyleSheet.create({
@@ -26,6 +28,7 @@ class Dashboard extends React.Component{
 render(){
   return (
       <View style={styles.container}>
+      	<Image source={{uri: this.props.userInfo.avatar_url}} style={styles.image} />
         <Text> This is the dashboard </Text>
         <Text> {JSON.stringify(this.props.userInfo)} </Text>
       </View>
