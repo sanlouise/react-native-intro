@@ -43,6 +43,11 @@ var styles = StyleSheet.create({
 });
 
 class Repositories extends React.Component{
+
+	openPage(url) {
+		console.log('The repo url is:', url);
+	}
+
 	render() {
 		let repos = this.props.repos;
 		let list = repos.map((item, index) => {
@@ -52,7 +57,7 @@ class Repositories extends React.Component{
 					<View style={styles.rowContainer}>
 
 					<TouchableHighlight
-						onPress={}
+						onPress={this.openPage.bind(this, repos[index].html_url)}
 						underlayColor='transparent'>
 						<Text style={styles.name}>{repos[index].name}</Text>
 					</TouchableHighlight>
@@ -72,6 +77,11 @@ class Repositories extends React.Component{
 
 		)
 	}
+};
+
+Repositories.propTypes = {
+	userInfo: react.PropTypes.object.isRequired,
+	repos: React.Proptypes.array.isRequired
 };
 
 module.exports = Repositories;
