@@ -1,6 +1,7 @@
 import React from 'react';
 import api from '../Utils/api'
 import Dashboard from './Dashboard'
+import Profile from './Profile'
 
 import {
 	Text,

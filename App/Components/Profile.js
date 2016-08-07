@@ -46,22 +46,29 @@ class Profile extends React.Component{
 			if(!userInfo[item]){
 				return <View key={index} />
 			} else {
-				return {
+				return (
 					<View key={index}>
 						<View styles={styles.rowContainer}>
-							<Text styles.rowTitle}> {this.getRowTitle(userInfo, item)} </Text>
+							<Text styles={rowTitle}> {this.getRowTitle(userInfo, item)} </Text>
 							<Text style={styles.rowContent}> {userInfo[item]} </Text>
 						</View>
 					</View>
-				}
+				)
 			}
 		});
+		return (
 
-		<ScrollView style={styles.container}>
-			<Badge userInfo={this.props.userInfo} />
-			{list}
-		</ScrollView
+			<ScrollView style={styles.container}>
+				<Badge userInfo={this.props.userInfo} />
+				{list}
+			</ScrollView>
+		)
 	}
 };
+
+Profile.propTypes = {
+    userInfo: React.PropTypes.object.isRequired
+}
+
 
 module.exports = Profile;
