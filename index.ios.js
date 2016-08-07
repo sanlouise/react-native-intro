@@ -5,6 +5,7 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
+  View,
   NavigatorIOS
 } from 'react-native';
 

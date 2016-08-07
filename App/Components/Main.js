@@ -1,7 +1,9 @@
 import React from 'react';
-import api from '../Utils/api'
-import Dashboard from './Dashboard'
-import Profile from './Profile'
+import api from '../Utils/api';
+import Dashboard from './Dashboard';
+import Profile from './Profile';
+import Repositories from './Repositories';
+import Separator from './Helpers/Separator';
 
 import {
 	Text,

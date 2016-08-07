@@ -53,13 +53,19 @@ class Dashboard extends React.Component{
     })
   }
 
-	goToRepos() {
-    this.props.navigator.push({
-        component: Repositories,
-        title: 'Repositories',
-        passProps: {userInfo: this.props.userInfo}
-    })
-	}
+  goToRepos(){
+  	api.getRepos(this.props.userInfo.login)
+  	.then((res) => {
+  		this.props.navigator.push({
+  			component: Repositories,
+  			title: 'Repos Page',
+  			passProps: {
+  				userInfo: this.props.userInfo,
+  				repos: res
+  			}
+  		});
+  	});
+  }
 
 	goToNotes() {
 		console.log('Redirecting to Notes');
