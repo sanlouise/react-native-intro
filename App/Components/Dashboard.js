@@ -1,4 +1,5 @@
 import React from 'react';
+import Profile from './Profile';
 import api from '../Utils/api';
 
 import {
@@ -43,9 +44,13 @@ class Dashboard extends React.Component{
 		return obj;
 	}
 
-	goToProfile() {
-		console.log('Redirecting to Profile Page');
-	}
+	goToProfile(){
+      this.props.navigator.push({
+          component: Profile,
+          title: 'Profile Page',
+          passProps: {userInfo: this.props.userInfo}
+      })
+  }
 
 	goToRepos() {
 		console.log('Redirecting to Repos');
@@ -81,7 +86,7 @@ class Dashboard extends React.Component{
 	            underlayColor="#9BAAF3">
 	              <Text style={styles.buttonText}>Take Notes</Text>
 	        </TouchableHighlight>
-	        
+
 	      </View>
 	    )
 	}
