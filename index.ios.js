@@ -5,7 +5,7 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  NavigatorIOS,
+  NavigatorIOS
 } from 'react-native';
 
 var styles = StyleSheet.create({

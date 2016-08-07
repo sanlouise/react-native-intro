@@ -34,7 +34,7 @@ let styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: 'white',
         borderRadius: 8,
-        color: 'white'
+        color: 'white',
     },
     buttonText: {
         fontSize: 18,
@@ -66,14 +66,13 @@ class Main extends React.Component{
 		}
 	}
 
-	handleChange(e) {
-		this.setState({
-			username: e.nativeEvent.text
-		})
-	}
-
-	handleSubmit(){
-    // update our indicatorIOS spinner
+	handleChange(event){
+    this.setState({
+      username: event.nativeEvent.text
+    })
+  }
+  handleSubmit(){
+ 
     this.setState({
       isLoading: true
     });
