@@ -43,30 +43,48 @@ class Dashboard extends React.Component{
 		return obj;
 	}
 
-render(){
-  return (
-      <View style={styles.container}>
-      	<Image source={{uri: this.props.userInfo.avatar_url}} style={styles.image} />
-        <TouchableHighlight
-        	style={this.makeBackground(0)}
-        	onPress={this.goToProfile.bind(this)}
-        	<Text style={styles.buttonText}> View Profile </Text>
-        </TouchableHighlight>
+	goToProfile() {
+		console.log('Redirecting to Profile Page');
+	}
 
-        <TouchableHighlight
-        	style={this.makeBackground(1)}
-        	onPress={this.goToRepos.bind(this)}
-        	<Text style={styles.buttonText}> View Repositories </Text>
-        </TouchableHighlight>
+	goToRepos() {
+		console.log('Redirecting to Repos');
+	}
 
-        <TouchableHighlight
-        	style={this.makeBackground(2)}
-        	onPress={this.goToNotes.bind(this)}
-        	<Text style={styles.buttonText}> View Notes </Text>
-        </TouchableHighlight>
-      </View>
-    )
-}
+	goToNotes() {
+		console.log('Redirecting to Notes');
+	}
+
+	render(){
+	  return (
+	      <View style={styles.container}>
+
+	      	<Image source={{uri: this.props.userInfo.avatar_url}} style={styles.image} />
+					
+					<TouchableHighlight
+	            style={this.makeBackground(0)}
+	            onPress={this.goToProfile.bind(this)}
+	            underlayColor="#88D4F5">
+	              <Text style={styles.buttonText}>View Profile</Text>
+	        </TouchableHighlight>
+
+	        <TouchableHighlight
+	            style={this.makeBackground(1)}
+	            onPress={this.goToRepos.bind(this)}
+	            underlayColor="#E39EBF">
+	              <Text style={styles.buttonText}>View Repositories</Text>
+	        </TouchableHighlight>
+
+	        <TouchableHighlight
+	            style={this.makeBackground(2)}
+	            onPress={this.goToNotes.bind(this)}
+	            underlayColor="#9BAAF3">
+	              <Text style={styles.buttonText}>Take Notes</Text>
+	        </TouchableHighlight>
+	        
+	      </View>
+	    )
+	}
 };
 
 module.exports = Dashboard;
