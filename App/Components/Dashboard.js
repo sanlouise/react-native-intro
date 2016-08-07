@@ -1,9 +1,10 @@
-import React {Component} from 'react';
-import { View } from 'react-native';
+import React from 'react';
+import api from '../Utils/api';
 
-let {
-	Text,
-	StyleSheet
+import {
+  Text,
+  View,
+  StyleSheet
 } from 'react-native';
 
 var styles = StyleSheet.create({
@@ -21,16 +22,15 @@ var styles = StyleSheet.create({
   }
 });
 
-class Dashboard extends Component {
-	render() {
-		return{
-			<View style={styles.container}>
-				<Text> This is the Dashboard </Text>
-				<Text> {JSON.stringify(this.props.userInfo)} </Text>
-			</View>
-		}
-	}
-
+class Dashboard extends React.Component{
+render(){
+  return (
+      <View style={styles.container}>
+        <Text> This is the dashboard </Text>
+        <Text> {JSON.stringify(this.props.userInfo)} </Text>
+      </View>
+    )
+}
 };
 
 module.exports = Dashboard;

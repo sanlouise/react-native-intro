@@ -1,10 +1,10 @@
 import React from 'react';
-import { View } from 'react-native';
-import API from '../Utils/api'
-
+import api from '../Utils/api'
+import Dashboard from './Dashboard'
 
 import {
 	Text,
+  View,
 	StyleSheet,
 	TextInput,
 	TouchableHighlight,
@@ -72,32 +72,32 @@ class Main extends React.Component{
 		})
 	}
 
-	handleSubmit() {
-		//Update indicatorIOS spinner
-		this.setState({
-			isLoading: true
-		});
-		api.getBio(this.state.username)
+	handleSubmit(){
+    // update our indicatorIOS spinner
+    this.setState({
+      isLoading: true
+    });
+    api.getBio(this.state.username)
       .then((res) => {
         if(res.message === 'Not Found'){
           this.setState({
             error: 'User not found',
             isLoading: false
-        })
-      } else {
-        this.props.navigator.push({
-          title: res.name || "Select an Option",
-          component: Dashboard,
-          passProps: {userInfo: res}
-        })
-        this.setState({
-          isLoading: false,
-          error: false,
-          username: ''
-        })
-      }
-    });
-	}
+          })
+        } else {
+          this.props.navigator.push({
+            title: res.name || "Select an Option",
+            component: Dashboard,
+            passProps: {userInfo: res}
+          });
+          this.setState({
+            isLoading: false,
+            error: false,
+            username: ''
+          })
+        }
+      });
+  }
 
   render() {
     return(

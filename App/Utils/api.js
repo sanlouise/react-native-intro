@@ -1,7 +1,7 @@
 var api = {
 
 	getBio(username){
-		username = username.toLowercase().trim();
+		username = username.toLowerCase().trim();
 		var url =`https://api.github.com/users/$(username)`
 		return fetch(url).then((res) => res.json());
 	},
