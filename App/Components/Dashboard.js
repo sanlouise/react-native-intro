@@ -25,12 +25,28 @@ var styles = StyleSheet.create({
 });
 
 class Dashboard extends React.Component{
+
 render(){
   return (
       <View style={styles.container}>
       	<Image source={{uri: this.props.userInfo.avatar_url}} style={styles.image} />
-        <Text> This is the dashboard </Text>
-        <Text> {JSON.stringify(this.props.userInfo)} </Text>
+        <TouchableHighlight
+        	onPress={this.goToProfile.bind(this)}
+        	underlayColor='#88D4F5'>
+        	<Text style={styles.buttonText}> View Profile </Text>
+        </TouchableHighlight>
+
+        <TouchableHighlight
+        	onPress={this.goToRepos.bind(this)}
+        	underlayColor='#88D4F5'>
+        	<Text style={styles.buttonText}> View Repositories </Text>
+        </TouchableHighlight>
+
+        <TouchableHighlight
+        	onPress={this.goToNotes.bind(this)}
+        	underlayColor='#88D4F5'>
+        	<Text style={styles.buttonText}> View Notes </Text>
+        </TouchableHighlight>
       </View>
     )
 }
