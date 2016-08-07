@@ -1,5 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
+import API from '../Utils/api'
+
 
 import {
 	Text,
@@ -72,8 +74,29 @@ class Main extends React.Component{
 
 	handleSubmit() {
 		//Update indicatorIOS spinner
-		//Fetch GitHub data
-		//Reroute with GitHub data
+		this.setState({
+			isLoading: true
+		});
+		api.getBio(this.state.username)
+      .then((res) => {
+        if(res.message === 'Not Found'){
+          this.setState({
+            error: 'User not found',
+            isLoading: false
+        })
+      } else {
+        this.props.navigator.push({
+          title: res.name || "Select an Option",
+          component: Dashboard,
+          passProps: {userInfo: res}
+        })
+        this.setState({
+          isLoading: false,
+          error: false,
+          username: ''
+        })
+      }
+    });
 	}
 
   render() {
