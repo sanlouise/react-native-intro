@@ -1,6 +1,7 @@
 import React from 'react';
 import Profile from './Profile';
 import Repositories from './Repositories';
+import Notes from './Notes';
 import api from '../Utils/api';
 
 import {
@@ -68,7 +69,18 @@ class Dashboard extends React.Component{
   }
 
 	goToNotes() {
-		console.log('Redirecting to Notes');
+		api.getNotes(this.props.userInfo.login)
+			.then((res) => {
+				res = res || {};
+				this.props.navigator.push({
+					component: Notes,
+					tite: 'Notes',
+					passProps: {
+						userInfo: this.props.userInfo,
+						notes: res
+					}
+				})
+			})
 	}
 
 	render(){
