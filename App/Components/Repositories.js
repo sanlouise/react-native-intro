@@ -56,7 +56,7 @@ class Repositories extends React.Component{
             underlayColor='transparent'>
               <Text style={styles.name}>{repos[index].name}</Text>
           </TouchableHighlight>
-          <Text style={styles.stars}> Stars: {repos[index].stargazers_count} </Text>
+          <Text style={styles.stars}>Stars: {repos[index].stargazers_count} </Text>
             {desc}
             <Separator />
         </View>

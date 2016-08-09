@@ -21,7 +21,7 @@ var styles = StyleSheet.create({
     height: 350,
   },
   buttonText: {
-    fontSize: 24,
+    fontSize: 22,
     color: 'white',
     alignSelf: 'center'
   }
@@ -37,11 +37,11 @@ class Dashboard extends React.Component{
 			flex: 1
 		}
 		if(btn === 0){
-			obj.backgroundColor = '#48BBEC';
+			obj.backgroundColor = '#51A3A3';
 		} else if (btn === 1){
-			obj.backgroundColor = '#E77AAE';
+			obj.backgroundColor = '#75485E';
 		} else {
-			obj.backgroundColor = '#758Bf4';
+			obj.backgroundColor = '#CB904D';
 		}
 		return obj;
 	}
@@ -106,7 +106,7 @@ class Dashboard extends React.Component{
 	        <TouchableHighlight
 	            style={this.makeBackground(2)}
 	            onPress={this.goToNotes.bind(this)}
-	            underlayColor="#9BAAF3">
+	            underlayColor="#039be5">
 	              <Text style={styles.buttonText}>Take Notes</Text>
 	        </TouchableHighlight>
 

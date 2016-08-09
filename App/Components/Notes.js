@@ -45,9 +45,7 @@ var styles = StyleSheet.create({
   }
 });
 
-
 class Notes extends React.Component{
-
   constructor(props){
     super(props);
     this.ds = new ListView.DataSource({rowHasChanged: (row1, row2) => row1 !== row2})
@@ -57,80 +55,74 @@ class Notes extends React.Component{
       error: ''
     }
   }
-
   handleChange(e){
     this.setState({
       note: e.nativeEvent.text
     })
   }
-
-  //Sending data to Firebase
   handleSubmit(){
     var note = this.state.note;
     this.setState({
       note: ''
     });
-    
     api.addNote(this.props.userInfo.login, note)
-    .then((data) => {
-      api.getNotes(this.props.userInfo.login)
       .then((data) => {
-        this.setState({
-          dataSource: this.ds.cloneWithRows(data)
-        })
+        api.getNotes(this.props.userInfo.login)
+          .then((data) => {
+            this.setState({
+              dataSource: this.ds.cloneWithRows(data)
+            })
+          });
+      })
+      .catch((error) => {
+        console.log('Request failed', error);
+        this.setState({error})
       });
-    })
-    .catch((error) => {
-      console.log('Request failed', error);
-      this.setState({error})
-    });
   }
-
   renderRow(rowData){
     return (
       <View>
         <View style={styles.rowContainer}>
-         <Text> {rowData} </Text>
+          <Text> {rowData} </Text>
         </View>
-      <Separator />
+        <Separator />
       </View>
-      )
-    }
-
-    footer(){
-      return (
-        <View style={styles.footerContainer}>
-          <TextInput
+    )
+  }
+  footer(){
+    return (
+      <View style={styles.footerContainer}>
+        <TextInput
             style={styles.searchInput}
             value={this.state.note}
             onChange={this.handleChange.bind(this)}
             placeholder="New Note" />
-            <TouchableHighlight
-              style={styles.button}
-              onPress={this.handleSubmit.bind(this)}
-              underlayColor="#88D4F5">
+        <TouchableHighlight
+            style={styles.button}
+            onPress={this.handleSubmit.bind(this)}
+            underlayColor="#88D4F5">
               <Text style={styles.buttonText}>Submit</Text>
-            </TouchableHighlight>
-        </View>
-      )
-    }
-
-    render(){
-      return (
-        <View style={styles.container}>
+          </TouchableHighlight>
+      </View>
+    )
+  }
+  render(){
+    return (
+      <View style={styles.container}>
           <ListView
+            enableEmptSections={true}
             dataSource={this.state.dataSource}
             renderRow={this.renderRow}
             renderHeader={() => <Badge userInfo={this.props.userInfo}/>} />
-            {this.footer()}
-        </View>
-      )
-    }
-  };
+        {this.footer()}
+      </View>
+    )
+  }
+};
 
-  Notes.propTypes = {
-    userInfo: React.PropTypes.object.isRequired,
-    notes: React.PropTypes.object.isRequired
-  };
+Notes.propTypes = {
+  userInfo: React.PropTypes.object.isRequired,
+  notes: React.PropTypes.object.isRequired
+}
 
-  module.exports = Notes;
+module.exports = Notes;

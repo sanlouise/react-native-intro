@@ -12,7 +12,7 @@ import {
 const styles = StyleSheet.create({
   container:{
     flex: 1,
-    backgroundColor: '#111111'
+    backgroundColor: '#039BE5'
   },
 });
 

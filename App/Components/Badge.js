@@ -9,27 +9,25 @@ import {
 
 var styles = StyleSheet.create({
   container: {
-    backgroundColor: '#48BBEC',
-    paddingBottom: 10
+    backgroundColor: '#03a9f4',
+    paddingBottom: 10,
+    alignItems: 'center'
   },
   name: {
-    alignSelf: 'center',
     fontSize: 21,
     marginTop: 10,
     marginBottom: 5,
     color: 'white'
   },
-  handle: {
-    alignSelf: 'center',
+  username: {
     fontSize: 16,
     color: 'white'
   },
   image: {
-    height: 125,
-    width: 125,
-    borderRadius: 65,
-    marginTop: 10,
-    alignSelf: 'center'
+    height: 150,
+    width: 150,
+    borderRadius: 0,
+    marginTop: 10
   }
 });
 
@@ -39,7 +37,7 @@ class Badge extends React.Component{
       <View style={styles.container}>
       <Image style={styles.image} source={{uri: this.props.userInfo.avatar_url}}/>
       <Text style={styles.name}> {this.props.userInfo.name} </Text>
-      <Text style={styles.handle}> {this.props.userInfo.login} </Text>
+      <Text style={styles.username}> {this.props.userInfo.login} </Text>
       </View>
     )
   }

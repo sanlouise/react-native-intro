@@ -22,11 +22,11 @@ let styles = StyleSheet.create({
         padding: 10
     },
     rowTitle: {
-        color: '#48BBEC',
+        color: '#0288d1',
         fontSize: 16
     },
     rowContent: {
-        fontSize: 19
+        fontSize: 16
     }
 });
 
@@ -50,8 +50,8 @@ class Profile extends React.Component{
 				return (
 					<View key={index}>
 						<View style={styles.rowContainer}>
-							<Text style={styles.rowTitle}> {this.getRowTitle(userInfo, item)} </Text>
-							<Text style={styles.rowContent}> {userInfo[item]} </Text>
+							<Text style={styles.rowTitle}>{this.getRowTitle(userInfo, item)}</Text>
+							<Text style={styles.rowContent}>{userInfo[item]}</Text>
 						</View>
 						<Separator />
 					</View>

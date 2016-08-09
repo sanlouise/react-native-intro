@@ -8,6 +8,7 @@ import Separator from './Helpers/Separator';
 import {
 	Text,
   View,
+  Image,
 	StyleSheet,
 	TextInput,
 	TouchableHighlight,
@@ -21,7 +22,8 @@ let styles = StyleSheet.create({
         marginTop: 65,
         flexDirection: 'column',
         justifyContent: 'center',
-        backgroundColor: '#48BBEC'
+        alignItems: 'center',
+        backgroundColor: '#01579b'
     },
     title: {
         marginBottom: 20,
@@ -56,6 +58,12 @@ let styles = StyleSheet.create({
         alignSelf: 'stretch',
         justifyContent: 'center'
     },
+    image: {
+      width: 100, 
+      height: 100, 
+      alignItems:'center',
+      marginBottom: 40
+    }
 });
 
 
@@ -83,7 +91,7 @@ class Main extends React.Component{
       .then((res) => {
         if(res.message === 'Not Found'){
           this.setState({
-            error: 'User not found',
+            error: 'Oops, we could not find this GitHub user.',
             isLoading: false
           })
         } else {
@@ -108,8 +116,10 @@ class Main extends React.Component{
     );
 
     return(
+
       <View style={styles.mainContainer}>
-        <Text style={styles.title}>Search for a GitHub User</Text>
+        <Image source={{uri: 'https://cdn4.iconfinder.com/data/icons/iconsimple-logotypes/512/github-512.png'}} style={styles.image} />
+        <Text style={styles.title}>Find a GitHub User</Text>
       	<TextInput
       		style={styles.searchInput}
       		value={this.state.username}
@@ -122,7 +132,7 @@ class Main extends React.Component{
       	</TouchableHighlight>
         <ActivityIndicator
           animating={this.state.isLoading}
-          color="#111"
+          color="#fff"
           size="large"></ActivityIndicator>
         {showErr}
       </View>
