@@ -1,6 +1,9 @@
 # GitHub Notetaker
 
+This app is built with React Native.
+
 GitHub Notetaker allows users to search for GitHub users, browse their public information and repositories, as well as leave notes for each user.
+
 
 ## Installation (MAC OS X)
 
